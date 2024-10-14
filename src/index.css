@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Source Code Pro";
+        src: url("/fonts/sourcecodepro-light.woff") format("woff")
+            url("/fonts/sourcecodepro-light.woff2") format("woff2");
+        font-weight: 300;
+    }
+
+    @font-face {
+        font-family: "Source Code Pro";
+        src: url("/fonts/sourcecodepro-regular.woff") format("woff")
+            url("/fonts/sourcecodepro-regular.woff2") format("woff2");
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: "Source Code Pro";
+        src: url("/fonts/sourcecodepro-semibold.woff") format("woff")
+            url("/fonts/sourcecodepro-semibold.woff2") format("woff2");
+        font-weight: 600;
+    }
+
+    html {
+        font-family: "Source Code Pro", sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-slate-300 text-black;
+    }
+}
+
+@layer utilities {
+    #root {
+        --padding: 1.5rem;
+        --content-width: 90ch;
+
+        @apply grid;
+
+        grid-template-columns:
+            [full-bleed-start] minmax(var(--padding), 1fr)
+            [content-start] min(100% - var(--padding) * 2, var(--content-width)) [content-end]
+            minmax(var(--padding), 1fr) [full-bleed-end];
+    }
+
+    #root > :not(.full-bleed),
+    .full-bleed > :not(.full-bleed) {
+        @apply col-[content];
+    }
+
+    .full-bleed {
+        @apply col-[full-bleed] grid grid-cols-[inherit];
+    }
+
+    .link-item.active {
+        @apply font-semibold;
+    }
+}
