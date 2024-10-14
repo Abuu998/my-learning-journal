@@ -1,7 +1,9 @@
 
 function Home() {
 	return (
-		<main>Home</main>
+		<main className="full-bleed">
+			<h1 className="text-2xl">Home</h1>
+		</main>
 	)
 }
 

@@ -1,7 +1,9 @@
 
 function About() {
 	return (
-		<main>About</main>
+		<main className="full-bleed">
+			<h1>About</h1>
+		</main>
 	)
 }
 

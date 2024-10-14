@@ -30,26 +30,27 @@
     }
 
     body {
-        @apply bg-slate-300 text-black;
+        @apply bg-slate-300 text-black text-sm sm:text-base;
     }
 }
 
 @layer utilities {
     #root {
-        --padding: 1.5rem;
+        --padding: 1.2em;
         --content-width: 90ch;
 
-        @apply grid;
+        @apply grid min-h-screen;
 
         grid-template-columns:
             [full-bleed-start] minmax(var(--padding), 1fr)
             [content-start] min(100% - var(--padding) * 2, var(--content-width)) [content-end]
             minmax(var(--padding), 1fr) [full-bleed-end];
+        grid-template-rows: auto 1fr auto;
     }
 
     #root > :not(.full-bleed),
     .full-bleed > :not(.full-bleed) {
-        @apply col-[content];
+        @apply col-[content] ;
     }
 
     .full-bleed {
@@ -58,5 +59,9 @@
 
     .link-item.active {
         @apply font-semibold;
+    }
+
+    main {
+        @apply py-6 sm:py-12;
     }
 }
