@@ -30,7 +30,7 @@
     }
 
     body {
-        @apply bg-slate-300 text-black text-sm sm:text-base;
+        @apply bg-slate-200 text-black text-sm sm:text-base;
     }
 }
 
@@ -61,7 +61,8 @@
         @apply font-semibold;
     }
 
-    main {
-        @apply py-6 sm:py-12;
+    .hero {
+        background: url("assets/images/article-image-hero.png") no-repeat center center fixed;
+        background-size: cover;
     }
 }

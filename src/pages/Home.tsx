@@ -1,8 +1,11 @@
+import Hero from "../components/home/sections/Hero.tsx";
+import CardsGrid from "../components/home/sections/CardsGrid.tsx";
 
 function Home() {
 	return (
 		<main className="full-bleed">
-			<h1 className="text-2xl">Home</h1>
+			<Hero />
+			<CardsGrid />
 		</main>
 	)
 }

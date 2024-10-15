@@ -15,7 +15,7 @@ function Navbar() {
 
 	return (
 		<nav
-			className="py-4 bg-white full-bleed row-span-1"
+			className="py-4 bg-white full-bleed row-span-1 sticky top-0 inset-x-0 shadow-sm shadow-slate-300"
 		>
 			<div className="flex items-center justify-between">
 				<MyLink to="/">
