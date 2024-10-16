@@ -1,5 +1,5 @@
 import Hero from "../components/home/sections/Hero.tsx";
-import CardsGrid from "../components/home/sections/CardsGrid.tsx";
+import CardsGrid from "../components/shared/CardsGrid.tsx";
 
 function Home() {
 	return (

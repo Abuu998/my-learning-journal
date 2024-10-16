@@ -21,7 +21,7 @@
         font-family: "Source Code Pro";
         src: url("/fonts/sourcecodepro-semibold.woff") format("woff")
             url("/fonts/sourcecodepro-semibold.woff2") format("woff2");
-        font-weight: 600;
+        font-weight: 700;
     }
 
     html {
@@ -39,7 +39,7 @@
         --padding: 1.2em;
         --content-width: 90ch;
 
-        @apply grid min-h-screen;
+        @apply grid min-h-screen scroll-py-6 sm:scroll-py-8 md:scroll-py-12;
 
         grid-template-columns:
             [full-bleed-start] minmax(var(--padding), 1fr)

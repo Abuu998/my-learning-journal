@@ -1,7 +1,8 @@
-import { blogs } from "../../../lib"
-import BlogCard from "../../shared/BlogCard.tsx";
 import {useState} from "react";
-import Button from "../../shared/Button.tsx";
+import { blogs } from "../../lib"
+import { AnimatePresence } from "framer-motion"
+import BlogCard from "./BlogCard.tsx";
+import Button from "./Button.tsx";
 
 type Image = {
 	mobile: string,
@@ -9,8 +10,8 @@ type Image = {
 }
 
 type CardsGridProps = {
-	paginate: boolean
-	shownBlogsNumber: number
+	paginate?: boolean
+	shownBlogsNumber?: number
 }
 
 export type BlogType = {
@@ -34,7 +35,12 @@ function CardsGrid({ paginate = true, shownBlogsNumber = 3 }: CardsGridProps) {
 	const blogsToShow: BlogType[] = paginate ? blogs.slice(0, shownBlogs) : blogs
 
 	const blogCards = blogsToShow.map((blog: BlogType) => (
-		<BlogCard key={`${blog.title}-blog-post`} blog={blog} />
+		<AnimatePresence
+			key={`${blog.title}-blog-post`}
+			mode="wait"
+		>
+			<BlogCard blog={blog} />
+		</AnimatePresence>
 	))
 
 	return (
@@ -50,6 +56,7 @@ function CardsGrid({ paginate = true, shownBlogsNumber = 3 }: CardsGridProps) {
 					<Button
 						className="underline underline-offset-2 hover:text-slate-600"
 						onClick={handlePagination}
+						title="View More Blogs"
 					>
 						View More
 					</Button>
