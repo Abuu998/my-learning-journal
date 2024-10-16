@@ -32,6 +32,14 @@ function CardsGrid({ paginate = true, shownBlogsNumber = 3 }: CardsGridProps) {
 		}
 	}
 
+	const handleViewLess = (): void => {
+		if((shownBlogs === blogs.length) && (shownBlogs > 3)) {
+			setShownBlogs((): number => 3)
+		} else {
+			return
+		}
+	}
+
 	const blogsToShow: BlogType[] = paginate ? blogs.slice(0, shownBlogs) : blogs
 
 	const blogCards = blogsToShow.map((blog: BlogType) => (
@@ -52,13 +60,21 @@ function CardsGrid({ paginate = true, shownBlogsNumber = 3 }: CardsGridProps) {
 			</div>
 
 			{
-				(paginate && blogs.length > shownBlogs) && (
+				(paginate && blogs.length > shownBlogs) ? (
 					<Button
 						className="underline underline-offset-2 hover:text-slate-600"
 						onClick={handlePagination}
 						title="View More Blogs"
 					>
 						View More
+					</Button>
+				) : ((shownBlogs === blogs.length && shownBlogs > 3)) && (
+					<Button
+						className="underline underline-offset-2 hover:text-slate-600"
+						onClick={handleViewLess}
+						title="View More Blogs"
+					>
+						View Less
 					</Button>
 				)
 			}
