@@ -15,6 +15,7 @@ import blog04DesktopImage from "./images/blog-image-04.png"
 import blog04MobileImage from "./images/blog-mobile-image-04.png"
 import blog02DesktopImage from "./images/blog-image-5.png"
 import blog02MobileImage from "./images/blog-mobile-image-5.png"
+import profileImage from "./images/IMG-20220219-WA0007.jpg"
 
 
 export {
@@ -33,4 +34,5 @@ export {
     blog04MobileImage,
     blog05DesktopImage,
     blog05MobileImage,
+    profileImage
 };
