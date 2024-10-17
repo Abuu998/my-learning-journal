@@ -1,9 +1,11 @@
 import { logo } from "../../assets"
 import MyLink from "./MyLink.tsx";
+import ThemeSwitcher from "../shared/ThemeSwitcher.tsx";
 
 const LINKS = ['Home', 'About me']
 
 function Navbar() {
+
 	const navLinks = LINKS.map(item => (
 		<li key={`${item}-navigation-link`}>
 			<MyLink
@@ -15,7 +17,7 @@ function Navbar() {
 
 	return (
 		<nav
-			className="py-4 bg-white full-bleed row-span-1 sticky top-0 inset-x-0 z-10 shadow-sm shadow-slate-300"
+			className="py-4 bg-white dark:bg-slate-600 full-bleed row-span-1 sticky top-0 inset-x-0 z-10 shadow-sm shadow-slate-300 dark:shadow-slate-500"
 		>
 			<div className="flex items-center justify-between">
 				<MyLink to="/">
@@ -25,9 +27,13 @@ function Navbar() {
 					</div>
 				</MyLink>
 
-				<ul className="flex items-center gap-6">
-					{ navLinks }
-				</ul>
+				<div className="flex items-center">
+					<ul className="flex items-center gap-4">
+						{ navLinks }
+					</ul>
+
+					<ThemeSwitcher />
+				</div>
 			</div>
 		</nav>
 	)

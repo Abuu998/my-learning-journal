@@ -30,7 +30,7 @@
     }
 
     body {
-        @apply bg-slate-200 text-black text-sm sm:text-base;
+        @apply bg-slate-200 dark:bg-slate-800 text-black dark:text-white text-sm sm:text-base;
     }
 }
 
