@@ -38,7 +38,7 @@ function BlogCard({ blog }: BlogCardProps) {
         >
             <picture className="block col-span-full">
                 <source srcSet={image.desktop} media="(min-width: 768px)"/>
-                <img src={image.mobile} alt={`${title} Image`} className="w-full object-cover"/>
+                <img src={image.mobile} alt={`${title} Image`} className="w-full object-cover" loading="lazy" />
             </picture>
             <div className="col-span-full py-1">
                 <Dates date={date}/>

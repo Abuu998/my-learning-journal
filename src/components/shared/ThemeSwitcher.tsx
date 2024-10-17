@@ -2,6 +2,7 @@ import Button from "./Button.tsx";
 import {useTheme} from "../../context/ThemeContext.tsx";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2"
 
+
 function ThemeSwitcher() {
     const { toggleTheme, theme } = useTheme()
 
