@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from "react"
+import React, {createContext, useContext, useEffect, useCallback, useState} from "react"
 
 type ThemeValue = {
     theme: string
@@ -24,9 +24,10 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
         localStorage.setItem('preferredTheme', theme)
     }, [theme]);
 
-    const toggleTheme = (): void => {
+
+    const toggleTheme = useCallback(() => {
         setTheme(prev => prev === 'light' ? 'dark' : 'light')
-    }
+    }, [])
 
     const parameters = {
         theme,

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useMemo} from "react";
 import { blogs } from "../../lib"
 import { AnimatePresence } from "framer-motion"
 import BlogCard from "./BlogCard.tsx";
@@ -40,7 +40,10 @@ function CardsGrid({ paginate = true, shownBlogsNumber = 3 }: CardsGridProps) {
 		}
 	}
 
-	const blogsToShow: BlogType[] = paginate ? blogs.slice(0, shownBlogs) : blogs
+	const blogsToShow: BlogType[] = useMemo<BlogType[]>(() => {
+		return paginate ? blogs.slice(0, shownBlogs) : blogs
+	}, [paginate, shownBlogs]);
+
 
 	const blogCards = blogsToShow.map((blog: BlogType) => (
 		<AnimatePresence
